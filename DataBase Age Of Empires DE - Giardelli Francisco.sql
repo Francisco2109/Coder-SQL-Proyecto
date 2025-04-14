@@ -166,7 +166,7 @@ INSERT INTO tecnologias_civilizacion (civilizacion_id, tecnologia_id) VALUES
 (12, 1), (12, 2),
 (13, 1), (13, 2);
 INSERT INTO tecnologias_civilizacion (civilizacion_id, tecnologia_id) VALUES
-(5, 3); -- Sangre fría (id 3)
+(5, 3); -- Francos (id 5) Sangre fría (id 3)
 
 -- Creamos las Vistas
 
