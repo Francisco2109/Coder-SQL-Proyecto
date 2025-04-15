@@ -10,12 +10,6 @@ CREATE TABLE civilizaciones (
     unidad_unica VARCHAR(100)
 );
 
--- Tabla de Recursos
-CREATE TABLE recursos (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(50) NOT NULL
-);
-
 -- Tabla de Unidades
 CREATE TABLE unidades (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -91,7 +85,18 @@ INSERT INTO civilizaciones (nombre, bonificacion, unidad_unica) VALUES
 ('Sarracenos', 'Comercio eficiente, arqueros a camello', 'Mameluco'),
 ('Teutones', 'Unidades defensivas fuertes, monjes potentes', 'Caballero Teutón'),
 ('Turcos', 'Pólvora avanzada, oro abundante', 'Jenízaro'),
-('Vikingos', 'Infantería más rápida, barcos económicos', 'Berserker');
+('Vikingos', 'Infantería más rápida, barcos económicos', 'Berserker'),
+('Búlgaros', 'Infantería fuerte, herrería gratis', 'Konnik'),
+('Cumanos', 'Desarrollan edificios únicos, movilidad temprana', 'Kipchak'),
+('Lituanos', 'Bonificación por reliquias, caballería fuerte', 'Leitis'),
+('Polacos', 'Caballería con escudo, economía basada en granjas', 'Obuch'),
+('Burgundios', 'Tecnologías económicas tempranas', 'Caballero flamenco'),
+('Sicilianos', 'Daño reducido, construyen donjons', 'Serjeant'),
+('Bohemios', 'Pólvora y monjes mejorados', 'Hussite Wagon'),
+('Hindustanis', 'Economía eficiente, unidades de pólvora avanzadas', 'Ghulam'),
+('Dravídicos', 'Fuerza naval y elefantes únicos', 'Urumi Swordsman'),
+('Bengalíes', 'Elefantes resistentes, monjes avanzados', 'Ratha'),
+('Gurjaras', 'Economía de pastoreo, unidades montadas únicas', 'Shrivamsha Rider');
 
 -- Insertar unidades únicas
 INSERT INTO unidades (nombre, tipo, ataque, armadura, puntos_vida, coste_madera, coste_comida, coste_oro, coste_piedra, civilizacion_id) VALUES
@@ -107,7 +112,18 @@ INSERT INTO unidades (nombre, tipo, ataque, armadura, puntos_vida, coste_madera,
 ('Mameluco', 'Caballería a camello única', 9, 2, 85, 0, 0, 55, 0, 10),
 ('Caballero Teutón', 'Infantería única', 12, 2, 100, 0, 50, 50, 0, 11),
 ('Jenízaro', 'Infantería con pólvora única', 17, 1, 40, 0, 0, 60, 0, 12),
-('Berserker', 'Infantería única', 18, 4, 62, 0, 0, 45, 0, 13);
+('Berserker', 'Infantería única', 18, 4, 62, 0, 0, 45, 0, 13),
+('Konnik', 'Infantería única montada', 12, 2, 100, 0, 70, 30, 0, 14),
+('Kipchak', 'Arquería a caballo única', 6, 0, 60, 0, 0, 50, 0, 15),
+('Leitis', 'Caballería única', 12, 1, 100, 0, 70, 50, 0, 16),
+('Obuch', 'Infantería única', 10, 2, 80, 0, 60, 40, 0, 17),
+('Caballero flamenco', 'Infantería única', 11, 1, 70, 0, 60, 30, 0, 18),
+('Serjeant', 'Infantería única', 8, 3, 60, 0, 60, 35, 0, 19),
+('Hussite Wagon', 'Unidad con pólvora única', 12, 4, 150, 0, 0, 60, 0, 20),
+('Ghulam', 'Infantería única anti-arqueros', 9, 1, 80, 0, 60, 30, 0, 21),
+('Urumi Swordsman', 'Infantería única cargada', 7, 1, 60, 0, 60, 25, 0, 22),
+('Ratha', 'Unidad híbrida de ataque a distancia', 10, 2, 90, 0, 0, 70, 0, 23),
+('Shrivamsha Rider', 'Caballería con evasión', 8, 0, 65, 0, 60, 40, 0, 24);
 
 -- Insertar edificios
 INSERT INTO edificios (nombre, puntos_vida, coste_madera, coste_comida, coste_oro, coste_piedra) VALUES
@@ -129,7 +145,18 @@ INSERT INTO tecnologias (nombre, descripcion, coste_madera, coste_comida, coste_
 ('Teología', 'Reduce el tiempo de conversión de los monjes', 0, 200, 300, 0, 5),
 ('Masonería', 'Aumenta la resistencia de edificios', 0, 200, 100, 0, 6),
 ('Ingeniería de asedio', 'Aumenta el alcance de las armas de asedio', 0, 200, 200, 0, 7),
-('Carretilla', 'Aumenta la capacidad de carga de los aldeanos', 0, 175, 50, 0, 8);
+('Carretilla', 'Aumenta la capacidad de carga de los aldeanos', 0, 175, 50, 0, 8),
+('Stirrups', 'Incrementa la velocidad de ataque de la caballería', 0, 200, 150, 0, 4),     -- Búlgaros
+('Steppe Husbandry', 'Las unidades a caballo se crean más rápido', 0, 200, 100, 0, 4),    -- Cumanos
+('Hill Forts', 'Más alcance para centros urbanos', 0, 300, 150, 0, 4),                    -- Lituanos
+('Szlachta Privileges', 'Reduce coste de Leitis', 0, 300, 200, 0, 4),                    -- Polacos
+('Burgundian Vineyards', 'Convierte comida en oro', 0, 600, 300, 0, 4),                 -- Burgundios
+('First Crusade', 'Crea Caballeros flamencos gratis', 0, 400, 300, 0, 4),               -- Sicilianos
+('Wagenburg Tactics', 'Reduce daño recibido por pólvora', 0, 300, 200, 0, 4),           -- Bohemios
+('Shatagni', 'Mejora precisión y alcance de pólvora', 0, 400, 250, 0, 4),               -- Hindustanis
+('Wootz Steel', 'Ignora armadura enemiga', 0, 400, 300, 0, 4),                          -- Dravídicos
+('Paiks', 'Rathas disparan más rápido', 0, 350, 250, 0, 4),                             -- Bengalíes
+('Kshatriyas', 'Unidades cuestan menos comida', 0, 400, 200, 0, 4);                     -- Gurjaras
 
 -- Unidades comunes
 INSERT INTO edificio_unidades (edificio_id, unidad_id) VALUES
@@ -148,7 +175,18 @@ INSERT INTO edificio_unidades (edificio_id, unidad_id) VALUES
 (4, 10), -- Elefante de guerra
 (4, 11), -- Mameluco
 (4, 12), -- Caballero Teutón
-(4, 13); -- Jenízaro
+(4, 13), -- Jenízaro
+(4, 14),
+(4, 15),
+(4, 16),
+(4, 17),
+(4, 18),
+(4, 19),
+(4, 20),
+(4, 21),
+(4, 22),
+(4, 23),
+(4, 24);
 
 -- Relación de tecnologías disponibles por civilización
 INSERT INTO tecnologias_civilizacion (civilizacion_id, tecnologia_id) VALUES
@@ -166,7 +204,18 @@ INSERT INTO tecnologias_civilizacion (civilizacion_id, tecnologia_id) VALUES
 (12, 1), (12, 2),
 (13, 1), (13, 2);
 INSERT INTO tecnologias_civilizacion (civilizacion_id, tecnologia_id) VALUES
-(5, 3); -- Francos (id 5) Sangre fría (id 3)
+(5, 3), -- Francos (id 5) Sangre fría (id 3)
+(14, 9),
+(15, 10),
+(16, 11),
+(17, 12),
+(18, 13),
+(19, 14),
+(20, 15),
+(21, 16),
+(22, 17),
+(23, 18),
+(24, 19);
 
 -- Creamos las Vistas
 
