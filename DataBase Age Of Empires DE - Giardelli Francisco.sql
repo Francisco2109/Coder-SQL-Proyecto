@@ -159,11 +159,17 @@ INSERT INTO edificio_unidades (edificio_id, unidad_id) VALUES
 (1, 1); -- Aldeano para el Centro Urbano 
 
 -- Unidades únicas por civilización (4 es para Castillo)
-INSERT INTO edificio_unidades (edificio_id, unidad_id) VALUES
+START TRANSACTION;
+
+INSERT INTO edificio_unidades (edificio_id, unidad_id) 
+VALUES
 (4, 2), -- Berserker
 (4, 3), -- Arquero largo
 (4, 4), -- Catafracta
-(4, 5), -- Chu Ko Nu
+(4, 5); -- Chu Ko Nu
+SAVEPOINT savepoint_unidades_edificios_fk_1;
+INSERT INTO edificio_unidades (edificio_id, unidad_id) 
+VALUES
 (4, 6), -- Caballero con hacha
 (4, 7), -- Huscarle
 (4, 8), -- Samurái
@@ -183,6 +189,15 @@ INSERT INTO edificio_unidades (edificio_id, unidad_id) VALUES
 (4, 22),
 (4, 23),
 (4, 24);
+SAVEPOINT savepoint_unidades_edificios_fk_2;
+INSERT INTO edificio_unidades (edificio_id, unidad_id) 
+VALUES
+(1, 2), -- Berserker en Centro Urbano
+(1, 3), -- Arquero largo en Centro Urbano
+(1, 4), -- Catafracta en Centro Urbano
+(1, 5); -- Chu Ko Nu en Centro Urbano
+ROLLBACK TO savepoint_unidades_edificios_fk_2;
+commit;
 
 -- Relación de tecnologías disponibles por civilización
 INSERT INTO tecnologias_civilizacion (civilizacion_id, tecnologia_id) VALUES
