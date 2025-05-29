@@ -23,8 +23,8 @@ SELECT * FROM tecnologias ORDER BY id DESC LIMIT 5;
 CALL Agregar_tecnologia('Muros Avanzados', 'Muros de Piedra tiene mas puntos de vida', '0', '0', '300', '200', '6');
 SELECT * FROM tecnologias ORDER BY id DESC LIMIT 5;
 
--- Funcion Daño por recurso --
-SELECT id, nombre FROM unidades;
+-- Funcion Daño por recurso -
+SELECT * FROM unidades;
 SELECT id, nombre,`FN_damage_per_resource`(id) as 'Eficiencia por Recurso' FROM unidades;
 
 -- Funcion Cantidad de Civilizaciones --
